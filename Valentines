@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Favorite Person ❤️</title>
+    <style>
+        body {
+            background-color: #fff0f3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #d63384;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(214, 51, 132, 0.2);
+            max-width: 600px;
+            width: 90%;
+            margin: 20px;
+        }
+        h1 { font-size: 2rem; margin-bottom: 1.5rem; }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        button:hover {
+            transform: scale(1.1);
+            background-color: #ff758f;
+        }
+        #reasons-page {
+            display: none;
+            text-align: left;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        ul { list-style: none; padding: 0; }
+        li {
+            background: #fff0f3;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            border-left: 5px solid #ff4d6d;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #ff758f; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: THE PROPOSAL -->
+    <div id="proposal-page" class="container">
+        <h1>Hey Handsome... 💌</h1>
+        <p style="font-size: 1.3rem;">I have a very important question for you.</p>
+        <p style="font-size: 1.5rem; font-weight: bold;">Will you be my Valentine?</p>
+        <div class="btn-container">
+            <button onclick="showReasons()">Yes! ❤️</button>
+            <button onclick="showReasons()">Absolutely Yes! ✨</button>
+        </div>
+    </div>
+
+    <!-- PAGE 2: THE REASONS -->
+    <div id="reasons-page" class="container">
+        <h1>Why I Love You... 🌹</h1>
+        <p>I could go on forever, but here are just a few reasons why you're my favorite person:</p>
+        <ul id="reason-list">
+            <!-- Reasons will be injected here -->
+        </ul>
+        <p style="text-align: center; font-weight: bold; margin-top: 20px;">I love you more today than I did yesterday. ❤️</p>
+    </div>
+
+    <script>
+        const reasons = [
+            "The way you look at me when you think I’m not looking.", "How safe I feel whenever you are near.", "You always know exactly how to cheer me up.", "The way you listen to me without interrupting.", "Your random texts that make my day right.", "How you support my dreams, no matter how big or small.", "You make me feel like the only person in the room.", "Your patience when I’m stressed or anxious.", "The way you hold my hand in public.", "You never let me go to sleep angry.", "How you challenge me to be a better person.", "You remember the little details I mention in passing.", "The way you defend me and stand by my side.", "Your ability to forgive and move forward.", "You make me laugh even when I want to cry.", "How you respect my boundaries.", "You appreciate my quirks instead of judging them.", "The effort you put into understanding my feelings.", "You are my biggest fan and cheerleader.", "Your incredible sense of humor.", "How intelligent and thoughtful you are.", "Your kindness toward strangers and servers.", "Your unwavering honesty and integrity.", "The passion you have for your hobbies.", "Your calm demeanor in chaotic situations.", "How hard you work to achieve your goals.", "Your generosity with your time and energy.", "Your adventurous spirit and willingness to try new things.", "The way you respect your family.", "Your confidence (without being arrogant).", "How reliable and trustworthy you are.", "Your curiosity about the world.", "The way you stay positive when things get tough.", "Your creative problem-solving skills.", "You are humble despite your talents.", "Your loyalty to your friends.", "You aren't afraid to admit your faults.", "Your strong sense of justice and fairness.", "The fact that you are unapologetically yourself.", "Your infectious laugh that fills the room.", "The way you look when you are concentrating.", "Your music.", "Your specific Boba order.", "Your smell—it’s my favorite scent.", "How excited you get about the little things.", "The way you dress and your personal style.", "How you cuddle me.", "The way you kiss me.", "Your voice—it always calms me down.", "How you interact with animals.", "The way you eat your favorite food.", "Your sleepy voice in the morning.", "How you quote movies or memes we both love.", "The way you drive.", "Your unexpected texts just to say 'hi'.", "That one specific shirt you wear that I love.", "We can sit in silence without it being awkward.", "How we finish each other’s sentences.", "Our inside jokes that no one else understands.", "The memories we’ve created on our trips.", "How we make a great team in everything.", "The plans we have made for our future.", "How we balance each other out.", "The way I can get along with your friends.", "Our late-night deep conversations.", "How we can have fun doing absolutely nothing.", "The trust we have built over time.", "How much I miss you when we are apart.", "The way we resolve our arguments respectfully.", "How you share your food with me.", "Our shared taste in music/movies.", "How we grew together and changed for the better.", "You are my best friend.", "I can't imagine my life without you.", "Your name means 'archer,' and you aimed straight for my heart.", "Your smile is the best curve on your body.", "Your strong hands and gentle touch.", "The color of your eyes when the light hits them.", "How handsome you look in those shoes you wear all the time.", "Your warmth when we cuddle.", "The cute noise you make when you sneeze.", "How great your hair looks (even when messy).", "Your physical strength makes me feel protected.", "The way your beard feels.", "You are the first person I want to tell good news to.", "How you encourage me to try things I’m scared of.", "You never judge my past.", "The nicknames you have for me.", "How you handle my family's moments.", "You always make sure I get home safely.", "The way you are always there for me through the hard times.", "That you chose me."
+        ];
+
+        function showReasons() {
+            document.getElementById('proposal-page').style.display = 'none';
+            const reasonsPage = document.getElementById('reasons-page');
+            reasonsPage.style.display = 'block';
+            
+            const list = document.getElementById('reason-list');
+            reasons.forEach(text => {
+                const li = document.createElement('li');
+                li.textContent = "💖 " + text;
+                list.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
+
+
